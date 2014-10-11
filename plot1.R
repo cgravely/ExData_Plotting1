@@ -5,6 +5,7 @@ plot1 <- function() {
   setwd("C:/Coursera/ExploratoryDataAnalysis")
   
   # Read in the applicable portion of the dataset
+  library(sqldf)
   temp <- tempfile()
   fileURL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
   download.file(fileURL,temp)
@@ -13,10 +14,10 @@ plot1 <- function() {
   unlink(temp)
   
   # Create a new column that combines the date an time
-  dat$one <- as.POSIXct(paste(dat$Date, x$Time), format="%Y-%m-%d %H:%M:%S")
+  dat$one <- as.POSIXct(paste(dat$Date, dat$Time), format="%Y-%m-%d %H:%M:%S")
   
   # Create the plot
-  hist(x$Global_active_power, main="Global Active Power",  xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red")
+  hist(dat$Global_active_power, main="Global Active Power",  xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red")
   dev.copy(png, file="plot1.png", height=480, width=480)
   dev.off()
 }
