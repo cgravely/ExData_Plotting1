@@ -18,10 +18,10 @@ plot3 <- function() {
   
   # Create the plot
   library(datasets)
-  png("C:/Coursera/ExploratoryDataAnalysis/graph3.png")
-  with(x,plot(one, Sub_metering_1, type="l", xlab="", ylab="Energy sub metering"))
-  with(x, points(one, Sub_metering_2, type="l", col="Red"))
-  with(x, points(one, Sub_metering_3, type="l", col="Blue"))
+  png("C:/Coursera/ExploratoryDataAnalysis/plot3.png")
+  with(dat,plot(one, Sub_metering_1, type="l", xlab="", ylab="Energy sub metering"))
+  with(dat, points(one, Sub_metering_2, type="l", col="Red"))
+  with(dat, points(one, Sub_metering_3, type="l", col="Blue"))
   legend("topright", lty = 1, col = c("black","blue","red"), legend = c("Sub_Metering_1","Sub_Metering_2","Sub_Metering_3"))
   dev.off()
 }
