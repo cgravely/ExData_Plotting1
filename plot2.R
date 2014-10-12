@@ -1,4 +1,4 @@
-plot1 <- function() {
+plot2 <- function() {
   # This script reads in the dataset, Electric power consumption, from the UC Irvine Machine Learning Repository.
   
   # Set working directory
@@ -14,12 +14,11 @@ plot1 <- function() {
   unlink(temp)
   
   # Create a new column that combines the date an time
-  dat$Date <- as.Date(dat$Date, "%m/%d/%Y")
-  dat$one <- as.POSIXct(paste(dat$Date, dat$Time), format="%Y-%m-%d %H:%M:%S")
-  
+  dat$one <- as.POSIXct(paste(dat$Date, dat$Time), format="%d/%m/%Y %H:%M:%S")
+    
   # Create the plot
   library(datasets)
-  hist(dat$Global_active_power, main="Global Active Power",  xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red")
-  dev.copy(png, file="plot1.png", height=480, width=480)
+  with(dat,plot(one, Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)"))
+  dev.copy(png, file="plot2.png", height=480, width=480)
   dev.off()
 }
