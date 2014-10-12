@@ -21,7 +21,7 @@ plot4 <- function() {
   png("C:/Coursera/ExploratoryDataAnalysis/plot4.png")
   par(mfrow = c(2,2))
   with(dat, {
-    plot(one, Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)")
+    plot(one, Global_active_power, type="l", xlab="", ylab="Global Active Power")
     plot(one, Voltage, type="l", xlab="datetime", ylab="Voltage")
     plot(one, Sub_metering_1, type="l", xlab="", ylab="Energy sub metering")
     with(dat, points(one, Sub_metering_2, type="l", col="Red"))
